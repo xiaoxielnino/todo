@@ -1,0 +1,16 @@
+
+extends ../layout
+
+block content
+	h1.
+		#{title}
+	form#formAddTodo(name="addTodo",method="post",action="/todos")
+		p Content: 
+			input#inputContent(type="text", placeholder="todo content", name="content")
+
+		p Completed: 
+			input#inputCompleted(type="checkbox", name="completed")
+		p UpdatedBy: 
+			input#inputDate(type="date", name="updated_at")
+		p
+			button#btnSubmit(type="submit") submit

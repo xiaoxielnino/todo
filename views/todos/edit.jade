@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+	h1.
+		Todo ID #{todo._id}/edit
+	form(action='/todos/#{todo._id}/edit',method='post',name='updatetodo',enctype='application/x-www-form-urlencoded')
+		p Content:
+			input#inputContent(type='text', value='#{todo.content}', name='content')
+		p Updated_at:
+			input#inputDate(type='date', value='#{todo.updated_at}', name='updated_at')
+		p Completed:
+			input#inputCompleted(type='checkbox', name='completed',value='true' checked=('#{todo.completed}'==='true' ? "checked" : undefined))
+		p
+			input(type='hidden',value='PUT',name='_method')
+		p
+			button#btnSubmit(type='submit').
+				Update
+
